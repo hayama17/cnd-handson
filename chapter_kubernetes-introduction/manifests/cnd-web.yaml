@@ -94,7 +94,7 @@ spec:
     namespace: gateway
     sectionName: http
   hostnames:
-  - cnd-web.example.com
+  - cnd-web.handson-2.hayama.top
   rules:
   - matches:
     - path:

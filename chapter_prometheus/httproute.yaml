@@ -10,7 +10,7 @@ spec:
     namespace: gateway
     sectionName: http
   hostnames:
-  - grafana.example.com
+  - grafana.handson-2.hayama.top
   rules:
   - matches:
     - path:
@@ -32,7 +32,7 @@ spec:
     namespace: gateway
     sectionName: http
   hostnames:
-  - prometheus.example.com
+  - prometheus.handson-2.hayama.top
   rules:
   - matches:
     - path:

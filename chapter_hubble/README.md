@@ -155,7 +155,7 @@ Hubble UIへアクセスするために、HTTPRouteリソースを作成しま�
 kubectl apply -f manifest/httproute.yaml
 ```
 
-ブラウザで<http://hubble-cilium.example.com>にアクセスしkube-systemのnamespaceを確認すると、下記のような画面が出力されます。
+ブラウザで<http://hubble-cilium.handson-2.hayama.top>にアクセスしkube-systemのnamespaceを確認すると、下記のような画面が出力されます。
 これより、インターネット側からingress-nginxの80ポートにアクセスがあり、その後hubble-uiの8081ポートにアクセスしていることが分かります。
 
 ![](./image/ch05_hubble-ui_01.png)

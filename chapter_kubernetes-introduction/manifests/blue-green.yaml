@@ -67,7 +67,7 @@ spec:
     namespace: gateway
     sectionName: http
   hostnames:
-  - "blue-green.example.com"
+  - "blue-green.handson-2.hayama.top"
   rules:
   - matches:
     - path:

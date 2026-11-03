@@ -115,7 +115,7 @@ releases:
   - values.yaml
 ```
 
-[values.yaml](app/Helmfile/helm/values.yaml) では、HTTPRoute で `headlamp.example.com` に公開するようにしています。
+[values.yaml](app/Helmfile/helm/values.yaml) では、HTTPRoute で `headlamp.handson-2.hayama.top` に公開するようにしています。
 
 Application は [applications/helmfile.yaml](applications/helmfile.yaml) です。`path` に `helmfile.yaml` があるディレクトリを指定します。`automated` を書いているので、作るとすぐに同期します。
 
@@ -149,7 +149,7 @@ Web UI で headlamp を開くと、Helmfile で描画したリソースが並ん
 
 ![](image/cmp/argocd-cmp-application.png)
 
-http://headlamp.example.com を開くと、トークンを入力する画面が表示されます。この章では、画面が表示されるところまでを確かめます。
+http://headlamp.handson-2.hayama.top を開くと、トークンを入力する画面が表示されます。この章では、画面が表示されるところまでを確かめます。
 
 > [!WARNING]
 > この章の Headlamp は、ServiceAccount に cluster-admin の権限を付け、HTTP で公開しています。ハンズオンの環境だけで使ってください。

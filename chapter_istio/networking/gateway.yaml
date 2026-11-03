@@ -13,4 +13,4 @@ spec:
       name: http-app
       protocol: HTTP
     hosts:
-    - istio-app.example.com
+    - istio-app.handson-2.hayama.top

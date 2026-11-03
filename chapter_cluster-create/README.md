@@ -305,7 +305,7 @@ NAME                           READY   UP-TO-DATE   AVAILABLE   AGE
 deployment.apps/handson-blue   1/1     1            1           3m34s
 
 NAME                                             HOSTNAMES             AGE
-httproute.gateway.networking.k8s.io/handson      ["app.example.com"]   3m9s
+httproute.gateway.networking.k8s.io/handson      ["app.handson-2.hayama.top"]   3m9s
 ```
 
 HTTPRouteがGatewayに正しく紐付いたかどうかは、`status`を確認することで分かります。
@@ -332,6 +332,6 @@ kubectl get httproute handson -n handson -o jsonpath='{.status.parents[0].condit
 ]
 ```
 
-ブラウザから`http://app.example.com`に接続し、下記のような画面が表示されることを確認してください。
+ブラウザから`http://app.handson-2.hayama.top`に接続し、下記のような画面が表示されることを確認してください。
 
 ![](./image/app-simple-routing.png)

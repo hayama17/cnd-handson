@@ -7,7 +7,7 @@ metadata:
     content: http-request-based-routing
 spec:
   hosts:
-  - istio-app.example.com
+  - istio-app.handson-2.hayama.top
   gateways:
   - handson
   http:
@@ -37,7 +37,7 @@ spec:
     redirect:
       uri: /maintenance.html
       redirectCode: 302
-      authority: "app.example.com"
+      authority: "app.handson-2.hayama.top"
 ---
 apiVersion: networking.istio.io/v1
 kind: DestinationRule

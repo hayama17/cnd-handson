@@ -87,7 +87,7 @@ spec:
     namespace: gateway
     sectionName: http
   hostnames:
-  - troubleshoot.example.com
+  - troubleshoot.handson-2.hayama.top
   rules:
   - matches:
     - path:

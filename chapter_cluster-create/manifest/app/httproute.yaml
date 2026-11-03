@@ -9,7 +9,7 @@ spec:
     namespace: gateway
     sectionName: http
   hostnames:
-  - app.example.com
+  - app.handson-2.hayama.top
   rules:
   - matches:
     - path:

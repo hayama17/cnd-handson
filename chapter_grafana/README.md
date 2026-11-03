@@ -31,7 +31,7 @@ kube-prometheus-stackをインストールした段階では、デフォルト�
 kube-prometheus-stackではデフォルトで多くのDashboardが用意されており、
 基本的なモニタリングをすぐに開始できます。
 
-お使いのブラウザで <http://grafana.example.com/dashboards> にアクセスしてみてください。
+お使いのブラウザで <http://grafana.handson-2.hayama.top/dashboards> にアクセスしてみてください。
 ログイン情報はchapter_prometheusで設定したもの(`username: admin, password: handson_saiko!`)です。
 
 主に以下のようなDashboardが用意されています。
@@ -55,10 +55,10 @@ chapter_prometheusでは、PodMonitorを使ってEnvoy Gateway(Envoy Proxy)の�
 別のターミナルで以下を実行し、この章の間は動かしたままにしておいてください。
 
 ```bash
-while true; do curl -s -o /dev/null http://app.example.com/; sleep 0.5; done
+while true; do curl -s -o /dev/null http://app.handson-2.hayama.top/; sleep 0.5; done
 ```
 
-<http://grafana.example.com/explore> にアクセスし、Datasourceが `Prometheus` になっていることを確認します。
+<http://grafana.handson-2.hayama.top/explore> にアクセスし、Datasourceが `Prometheus` になっていることを確認します。
 クエリエディタを `Code` に切り替えて、以下のPromQLを入力し、 `Run query` をクリックします。
 
 ```promql
@@ -67,7 +67,7 @@ sum by (envoy_cluster_name) (rate(envoy_cluster_upstream_rq_total[1m]))
 
 `envoy_cluster_name` ラベルには、Envoy GatewayがHTTPRouteごとに作るEnvoyのクラスタ名が入っています。
 `httproute/<Namespace>/<HTTPRoute名>/rule/<ルール番号>` のような形式になっているので、
-`httproute/handson/handson/rule/0` が `app.example.com` へのリクエストに対応します。
+`httproute/handson/handson/rule/0` が `app.handson-2.hayama.top` へのリクエストに対応します。
 
 <!-- TODO: スクリーンショット(Explore) -->
 
@@ -88,7 +88,7 @@ Envoy GatewayはDashboardをGitHubリポジトリで公開しているので、J
 
 - <https://github.com/envoyproxy/gateway/tree/v1.9.1/charts/gateway-addons-helm/dashboards>
 
-まずは <http://grafana.example.com/dashboards> にアクセスし、 `New` ボタンのプルダウンメニューから `New folder` をクリックし、
+まずは <http://grafana.handson-2.hayama.top/dashboards> にアクセスし、 `New` ボタンのプルダウンメニューから `New folder` をクリックし、
 `envoy-gateway` というフォルダ名で作成します。
 
 次に、 `New` ボタンのプルダウンメニューから `Import` をクリックします。
@@ -172,7 +172,7 @@ GitHubの `Settings` → `Developer settings` → `Personal access tokens` → `
 
 ### GrafanaでGit Syncを設定する
 
-<http://grafana.example.com/admin/provisioning> (`Administration` → `General` → `Provisioning`)にアクセスし、
+<http://grafana.handson-2.hayama.top/admin/provisioning> (`Administration` → `General` → `Provisioning`)にアクセスし、
 プロバイダとして `GitHub` を選択します。
 
 <!-- TODO: スクリーンショット(Provisioning画面) -->
@@ -207,7 +207,7 @@ GitHubの `Settings` → `Developer settings` → `Personal access tokens` → `
 
 Git Syncで同期している `handson-dashboards` フォルダの中に、サンプルアプリ用のDashboardを作成します。
 
-<http://grafana.example.com/dashboards> で `handson-dashboards` フォルダを開き、 `New` → `New dashboard` をクリックします。
+<http://grafana.handson-2.hayama.top/dashboards> で `handson-dashboards` フォルダを開き、 `New` → `New dashboard` をクリックします。
 
 #### Variablesを設定する
 
@@ -270,10 +270,10 @@ Dashboardの `Settings` → `Variables` → `Add variable` をクリックし、
 GitHub上でPull Requestを作成し(Grafanaの画面に表示されるリンクからも開けます)、内容を確認して `main` ブランチにマージしてください。
 
 マージ後、最大60秒ほど待つと、Grafanaの `handson-dashboards` フォルダに `Handson App` Dashboardが反映されます。
-すぐに反映したい場合は、 <http://grafana.example.com/admin/provisioning> の `Repositories` タブから対象リポジトリの `Pull` をクリックします。
+すぐに反映したい場合は、 <http://grafana.handson-2.hayama.top/admin/provisioning> の `Repositories` タブから対象リポジトリの `Pull` をクリックします。
 
 > [!TIP]
-> 同期の状態は、 <http://grafana.example.com/admin/provisioning> の `Repositories` タブで対象リポジトリの `View` をクリックすると確認できます。
+> 同期の状態は、 <http://grafana.handson-2.hayama.top/admin/provisioning> の `Repositories` タブで対象リポジトリの `View` をクリックすると確認できます。
 > 同期に失敗した場合は、ここにエラーの詳細が表示されます。
 
 ### GitHub上の変更をGrafanaに反映する
@@ -313,7 +313,7 @@ webhook-receiver-xxxxxxxxxx-xxxxx   1/1     Running   0          30s
 
 ### Contact Pointの追加
 
-<http://grafana.example.com/alerting/notifications> にアクセスして、
+<http://grafana.handson-2.hayama.top/alerting/notifications> にアクセスして、
 `Create contact point` ボタンをクリックします。
 
 以下のような設定を入力して、 `Test` ボタンをクリックしてテストアラートを発報します。
@@ -344,7 +344,7 @@ kubectl logs -n prometheus -l app=webhook-receiver --tail 50
 Contact Pointを追加しただけでは、新規にアラートを追加してもさきほどのContact Pointに向けて発報できません。
 それを実現するために、Notification Policyを作成する必要があります。
 
-<http://grafana.example.com/alerting/routes> にアクセスし、 `New child policy` のボタンをクリックします。
+<http://grafana.handson-2.hayama.top/alerting/routes> にアクセスし、 `New child policy` のボタンをクリックします。
 
 以下の設定を入力し、 `Save policy` ボタンをクリックします。
 
@@ -360,7 +360,7 @@ Contact Pointを追加しただけでは、新規にアラートを追加して�
 最後に、具体的なアラートルールを作成します。
 ここでは、「サンプルアプリへのリクエストが途絶えたら通知する」というルールを作ります。
 
-<http://grafana.example.com/alerting/list> にアクセスし、 `New alert rule` のボタンをクリックします。
+<http://grafana.handson-2.hayama.top/alerting/list> にアクセスし、 `New alert rule` のボタンをクリックします。
 以下の内容を設定し、最後に `Save` ボタンをクリックします。
 
 1. Enter alert rule name
@@ -381,15 +381,15 @@ Contact Pointを追加しただけでは、新規にアラートを追加して�
 5. Configure notifications
    - Notification Policyを使って通知先を決める設定にします(手順3で付けたラベルで `handson-webhook` にルーティングされます)
 6. Configure notification message
-   - `Summary` ... `app.example.com has no traffic`
-   - `Description` ... `Requests to app.example.com have been below 0.5 rps for 1 minute.`
+   - `Summary` ... `app.handson-2.hayama.top has no traffic`
+   - `Description` ... `Requests to app.handson-2.hayama.top have been below 0.5 rps for 1 minute.`
 
 <!-- TODO: スクリーンショット(アラートルール作成画面) -->
 
-このアラートは、 `app.example.com` へのリクエスト数が1分間平均で毎秒0.5回を下回った状態が1分続くと発報されるルールになっています。
+このアラートは、 `app.handson-2.hayama.top` へのリクエスト数が1分間平均で毎秒0.5回を下回った状態が1分続くと発報されるルールになっています。
 
 最初に実行した`curl`のループを `Ctrl+C` で止めて、数分待ってみましょう。
-<http://grafana.example.com/alerting/list> でアラートの状態が `Pending` → `Firing` と変わり、
+<http://grafana.handson-2.hayama.top/alerting/list> でアラートの状態が `Pending` → `Firing` と変わり、
 Webhook受信アプリのログに `HandsonAppNoTraffic` の通知が出力されるはずです。
 
 ```bash
@@ -404,7 +404,7 @@ kubectl logs -n prometheus -l app=webhook-receiver --tail 50
 
 ## 後片付け
 
-Git Syncの接続を削除する場合は、 <http://grafana.example.com/admin/provisioning> の `Repositories` タブで対象リポジトリの `Settings` → `Delete` をクリックします。
+Git Syncの接続を削除する場合は、 <http://grafana.handson-2.hayama.top/admin/provisioning> の `Repositories` タブで対象リポジトリの `Settings` → `Delete` をクリックします。
 同期済みのDashboardを残すか削除するかを選べます。
 
 ハンズオンが終わったら、GitHubで作成したfine-grained personal access tokenも削除してください。

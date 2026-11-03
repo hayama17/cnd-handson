@@ -345,7 +345,7 @@ spec:
     namespace: gateway
     sectionName: http
   hostnames:
-  - "hello-world.example.com"
+  - "hello-world.handson-2.hayama.top"
   rules:
   - matches:
     - path:
@@ -369,7 +369,7 @@ kubectl get httproutes
 ```text
 # 出力例
 NAME             HOSTNAMES                     AGE
-test-httproute   ["hello-world.example.com"]   5s
+test-httproute   ["hello-world.handson-2.hayama.top"]   5s
 ```
 
 ### 3.3. 動作確認
@@ -379,7 +379,7 @@ test-httproute   ["hello-world.example.com"]   5s
 ブラウザで以下にアクセス確認を行います。Hello Worldの文字が表示されたら成功です。
 
 ```text
-hello-world.example.com
+hello-world.handson-2.hayama.top
 ```
 
 動作確認後、リソースを削除します。
@@ -426,7 +426,7 @@ kubectl apply -f rollout.yaml
 続いて、ブラウザで以下にアクセスを行います。
 
 ```text
-http://rollout.example.com
+http://rollout.handson-2.hayama.top
 ```
 
 Pod更新前の状態では、`This app is Blue`の画面が表示がされていると思います。
@@ -453,7 +453,7 @@ kubectl get deployments
 更新後、ブラウザで再度以下にアクセスを行うと`This app is Green`の表示に更新されていることが確認できます。
 
 ```text
-http://rollout.example.com
+http://rollout.handson-2.hayama.top
 ```
 
 尚、ロールバックを行う場合は以下のコマンドで実行可能です。
@@ -490,7 +490,7 @@ spec:
     namespace: gateway
     sectionName: http
   hostnames:
-  - "blue-green.example.com"
+  - "blue-green.handson-2.hayama.top"
   rules:
   - matches:
     - path:
@@ -522,7 +522,7 @@ kubectl get pods,services,httproutes
 まだ切り替え前なので、`weight`パラメータで、すべてのリクエストをBlue（旧環境）に送信するよう設定しています。そのため、Blue Appが表示されるはずです。
 
 ```text
-http://blue-green.example.com にアクセス→ Blue App
+http://blue-green.handson-2.hayama.top にアクセス→ Blue App
 ```
 
 それでは、新環境に切り替えてみましょう。`weight`パラメータを変更し、すべてのリクエストをGreen（新環境）に送信するよう設定します。
@@ -538,7 +538,7 @@ spec:
     namespace: gateway
     sectionName: http
   hostnames:
-  - "blue-green.example.com"
+  - "blue-green.handson-2.hayama.top"
   rules:
   - matches:
     - path:
@@ -562,7 +562,7 @@ kubectl apply -f blue-green.yaml
 これで新環境への切り替えが完了しました。ブラウザからアクセスすると、Green Appが表示されるはずです。
 
 ```text
-http://blue-green.example.com にアクセス→ Green App
+http://blue-green.handson-2.hayama.top にアクセス→ Green App
 ```
 
 もし、新環境に不具合が見つかっても、`weight`パラメータを元に戻して再度applyするだけで、簡単に切り戻しできます。
@@ -670,7 +670,7 @@ kubectl delete secret handson-secret
 
 > [!NOTE]
 > - 動作確認は、ブラウザから以下のURLにアクセスすることで行います。
->   - http://cnd-web.example.com
+>   - http://cnd-web.handson-2.hayama.top
 > - リソースの更新後もWeb画面の表示が変わらない場合があります。1-2分待ってからブラウザのリフレッシュを行なってください。
 > - 改修箇所は1箇所ではない可能性があります。また、構成図とエラーメッセージがヒントになる場合があります。
 

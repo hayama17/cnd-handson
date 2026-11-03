@@ -165,7 +165,7 @@ admin のパスワードを確かめます。
 kubectl -n argo-cd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d ; echo
 ```
 
-http://argocd.example.com を開き、ログインします。
+http://argocd.handson-2.hayama.top を開き、ログインします。
 
 - ユーザー名: `admin`
 - パスワード: 上で確かめた値
@@ -288,9 +288,9 @@ Web UI で argocd-demo を開くと、Git にあるリソースがまだクラ�
 
 ![synced](image/v3/demo-synced.png)
 
-http://app-argocd.example.com を開きます。ログイン画面が出たら、次のユーザーでログインします。
+http://app-argocd.handson-2.hayama.top を開きます。ログイン画面が出たら、次のユーザーでログインします。
 
-- メールアドレス: `demo@example.com`
+- メールアドレス: `demo@handson-2.hayama.top`
 - パスワード: `demo-password`
 
 表形式の画面（legacy）が表示されます。
@@ -351,7 +351,7 @@ Argo CD が自動で同期し、新しい Pod に入れ替わります。
 
 ![autosync](image/v3/demo-autosync.png)
 
-http://app-argocd.example.com を開き直すと、カンバンの画面（modern）に変わっています。表示が変わらなければブラウザで再読み込みし、ログイン画面が出たら同じユーザーでログインします。
+http://app-argocd.handson-2.hayama.top を開き直すと、カンバンの画面（modern）に変わっています。表示が変わらなければブラウザで再読み込みし、ログイン画面が出たら同じユーザーでログインします。
 
 ![modern](image/v3/modern.png)
 
@@ -450,8 +450,8 @@ argocd-kustomize-prd   Synced        Healthy
 
 各環境を開きます。dev は表形式の画面（legacy）、prd はカンバンの画面（modern）です。
 
-- dev: http://dev-kustomize-argocd.example.com
-- prd: http://prd-kustomize-argocd.example.com
+- dev: http://dev-kustomize-argocd.handson-2.hayama.top
+- prd: http://prd-kustomize-argocd.handson-2.hayama.top
 
 prd の Pod は 2 つです。
 
@@ -510,7 +510,7 @@ ghcr.io/cloudnativedaysjp/cnd-handson-app/handson:modern
 > [!IMPORTANT]
 > Git の values.yaml は `legacy` のままです。Repository Server が描画するときに、Application の `valuesObject` で `modern` に上書きしました。同じ chart でも、Application の values を変えるだけで、デプロイする中身を変えられます。
 
-http://helm-argocd.example.com を開くと、カンバンの画面（modern）が表示されます。
+http://helm-argocd.handson-2.hayama.top を開くと、カンバンの画面（modern）が表示されます。
 
 ## 片付け
 
