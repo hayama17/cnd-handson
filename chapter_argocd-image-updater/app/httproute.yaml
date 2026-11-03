@@ -8,7 +8,7 @@ spec:
     namespace: gateway
     sectionName: http
   hostnames:
-  - argocdupdate.example.com
+  - argocdupdate.handson-2.hayama.top
   rules:
   - matches:
     - path:

@@ -120,7 +120,7 @@ Argo CDはその更新を検知し、自動SyncによりDeploymentのコンテ�
 https://argocd-image-updater.readthedocs.io/en/stable/install/installation/
 
 今回のハンズオン用に変更したものについては、chapter_argocd-image-updater/app/にyamlファイルあります。
-また、`argocdupdate.example.com`にてアプリを確認できますが、  
+また、`argocdupdate.handson-2.hayama.top`にてアプリを確認できますが、  
 nginxのページにて、バージョンが記載されていないため、argocdのWebUIにてバージョンを確認します。  
 
 ```bash

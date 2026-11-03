@@ -188,7 +188,7 @@ helmfile sync -f helm/helmfile.yaml
 > 詳細は[supported-chunks-stores-not-typically-recommended-for-production-use](https://grafana.com/docs/loki/latest/operations/storage/)を確認してください。
 
 次にLokiを利用するGrafanaのDatasourceの設定をしましょう。
-`http://grafana.example.com/connections/datasources`にアクセスしてください。
+`http://grafana.handson-2.hayama.top/connections/datasources`にアクセスしてください。
 
 ![](image/ch11_grafana_connections_datasources.png)
 
@@ -204,7 +204,7 @@ Lokiはマルチテナントにも対応しており、`Header`と`value`で使�
 この値は、Lokiにログを送付するAgentに設定してあります。
 今回の場合、`manifest/log-collector.yaml`の`exporters.loki.headers`に設定している値と同じ値を`Header`と`value`として設定します。
 
-設定が完了すると、`http://grafana.example.com/connections/datasources`にLokiが表示されます。
+設定が完了すると、`http://grafana.handson-2.hayama.top/connections/datasources`にLokiが表示されます。
 また、Grafana Exploreの画面でLokiが選択できるようになります。
 
 ![](image/ch11_grafana_connections_datasources.png)
@@ -268,7 +268,7 @@ kubectl apply -f manifest/log-collector.yaml
 ```
 
 次にログを発生させます。
-サンプルアプリは`http://app.example.com/`にアクセスしてみてください。
+サンプルアプリは`http://app.handson-2.hayama.top/`にアクセスしてみてください。
 色がついたパネルが発生するたびに、バックエンドのアプリケーションにログが出力されます。
 
 > [!NOTE]
@@ -280,7 +280,7 @@ kubectl apply -f manifest/log-collector.yaml
 > ```
 
 それでは実際にGrafanaからログを確認してみましょう。
-`http://grafana.example.com/explore`にアクセスします。
+`http://grafana.handson-2.hayama.top/explore`にアクセスします。
 Label filtersに`exporter`と`OTLP`を設定して検索ボタンを押します。
 すると、`exporter`ラベルの値が`OTLP`ログの数や、内容を確認できます。
 
@@ -331,7 +331,7 @@ Log Query Startersには、特定の文字列でフィルターしたログをlo
 
 ### アラートを投げる
 
-`http://grafana.example.com/alerting/list`にアクセスしてアラートを設定してみましょう！
+`http://grafana.handson-2.hayama.top/alerting/list`にアクセスしてアラートを設定してみましょう！
 
 > [!WARNING]
 > Grafanaの章で設定したContact PointとNotification Policyを利用します。
@@ -381,15 +381,15 @@ Log Query Startersには、特定の文字列でフィルターしたログをlo
   - 他の参加者とアラートが被った場合でも、自分が設定したアラートだと識別できるように設定
 
 このアラートは、`sum(count_over_time({exporter="OTLP"} |= "blue" [5m]))`が100を超えた場合にアラートを発報するというルールになっています。
-アラートを設定したら`http://app.example.com/`にアクセスして、ログを増やしてみましょう。
+アラートを設定したら`http://app.handson-2.hayama.top/`にアクセスして、ログを増やしてみましょう。
 
 > [!TIP]
-> アラートの発表状況は`http://grafana.example.com/alerting/list`から確認できます。
+> アラートの発表状況は`http://grafana.handson-2.hayama.top/alerting/list`から確認できます。
 > Datasoucesにlokiを指定すると、先ほど設定したアラートの状況が確認できます。
 > 通常はStateが`Normal`となっており、`Firing`となればアラートが発報されている状態です。
 
 Slackにアラートが連携されることを確認したら、アラートの設定を削除しておきましょう
-`http://grafana.example.com/alerting/list?search=datasource:loki`にアクセスし、Moreから「Delete」を選択肢削除しておきます。
+`http://grafana.handson-2.hayama.top/alerting/list?search=datasource:loki`にアクセスし、Moreから「Delete」を選択肢削除しておきます。
 
 
 ![](image/ch11_grafana_alerting_loki.png)

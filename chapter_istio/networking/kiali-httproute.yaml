@@ -9,7 +9,7 @@ spec:
     namespace: gateway
     sectionName: http
   hostnames:
-  - kiali.example.com
+  - kiali.handson-2.hayama.top
   rules:
   - matches:
     - path:

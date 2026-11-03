@@ -227,7 +227,7 @@ spec:
     namespace: gateway
     sectionName: http
   hostnames:
-  - grafana.example.com
+  - grafana.handson-2.hayama.top
   rules:
   - matches:
     - path:
@@ -238,7 +238,7 @@ spec:
       port: 80
 ```
 
-Prometheus用のHTTPRouteも同じ形で、ホスト名が`prometheus.example.com`、転送先が`kube-prometheus-stack-prometheus`の9090番ポートです。
+Prometheus用のHTTPRouteも同じ形で、ホスト名が`prometheus.handson-2.hayama.top`、転送先が`kube-prometheus-stack-prometheus`の9090番ポートです。
 
 ```bash
 kubectl apply -f httproute.yaml
@@ -254,13 +254,13 @@ kubectl get httproute -n prometheus
 ```text
 # 実行結果
 NAME                   HOSTNAMES                    AGE
-grafana-httproute      ["grafana.example.com"]      10s
-prometheus-httproute   ["prometheus.example.com"]   10s
+grafana-httproute      ["grafana.handson-2.hayama.top"]      10s
+prometheus-httproute   ["prometheus.handson-2.hayama.top"]   10s
 ```
 
-ローカル端末のブラウザから <http://prometheus.example.com> と <http://grafana.example.com> にアクセスしてみましょう。  
+ローカル端末のブラウザから <http://prometheus.handson-2.hayama.top> と <http://grafana.handson-2.hayama.top> にアクセスしてみましょう。  
 HTTPRouteを作った直後は、1分ほど`503`が返ることがあります。その場合は少し待ってから開き直してください。  
-※[chapter_setup](https://github.com/cloudnativedaysjp/cnd-handson/tree/main/chapter_setup)にてローカル端末のhostsファイルに`prometheus.example.com` と `grafana.example.com`が登録されている前提です。
+※[chapter_setup](https://github.com/cloudnativedaysjp/cnd-handson/tree/main/chapter_setup)にてローカル端末のhostsファイルに`prometheus.handson-2.hayama.top` と `grafana.handson-2.hayama.top`が登録されている前提です。
 
 Grafanaではユーザログインが必要ですが、Helm設定した prometheus-values.yaml の内容でログインできます。(`username: admin, password: handson_saiko!`)  
 values.yamlに記載した認証情報でログインできなかった場合は、以下のコマンドを実行してパスワードを確認し、ログインしてください。
@@ -282,7 +282,7 @@ PromQLの詳細な仕様についてはこちらを御覧ください。
 
 > https://prometheus.io/docs/prometheus/latest/querying/basics/
 
-<http://prometheus.example.com/query> にアクセスして、PromQL入力欄に `go_goroutines` と入力してみます。
+<http://prometheus.handson-2.hayama.top/query> にアクセスして、PromQL入力欄に `go_goroutines` と入力してみます。
 その後、 `Graph` のタブをクリックすると、以下のようなグラフが見れるはずです。
 
 ![image](./image/go_goroutines.png)
@@ -295,7 +295,7 @@ PromQLの詳細な仕様についてはこちらを御覧ください。
 
 kube-prometheus-stackでデフォルトで導入されているアラートルールを確認することができます。
 
-<http://prometheus.example.com/alerts>
+<http://prometheus.handson-2.hayama.top/alerts>
 
 ![image](./image/alerts.png)
 
@@ -304,7 +304,7 @@ kube-prometheus-stackでデフォルトで導入されているアラートル�
 現在稼働しているPrometheusの状態確認をすることができます。  
 以下のスクリーンショットでは、scrape_configに設定されたexporterに対するスクレイプが正しくおこなえているかどうか等の情報が表示されています。
 
-<http://prometheus.example.com/targets>
+<http://prometheus.handson-2.hayama.top/targets>
 
 ![image](./image/targets.png)
 
@@ -344,7 +344,7 @@ spec:
 kubectl apply -f manifests/envoy-gateway-podmonitor.yaml
 ```
 
-<http://prometheus.example.com/query> を開き (またはリロードして)、PromQL入力欄に次のクエリを入力してみましょう。
+<http://prometheus.handson-2.hayama.top/query> を開き (またはリロードして)、PromQL入力欄に次のクエリを入力してみましょう。
 HTTPRouteごとに、レスポンスコードの種類（2xx、4xxなど）別のリクエスト数が表示されます。
 ※PodMonitorをapplyしてから反映（メトリクスが追加）されるまでに数分かかります。
 

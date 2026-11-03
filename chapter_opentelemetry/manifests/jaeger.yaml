@@ -25,7 +25,7 @@ spec:
     namespace: gateway
     sectionName: http
   hostnames:
-  - jaeger.example.com
+  - jaeger.handson-2.hayama.top
   rules:
   - matches:
     - path:

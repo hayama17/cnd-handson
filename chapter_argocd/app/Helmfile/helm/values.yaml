@@ -5,4 +5,4 @@ httpRoute:
     namespace: gateway
     sectionName: http
   hostnames:
-  - headlamp.example.com
+  - headlamp.handson-2.hayama.top

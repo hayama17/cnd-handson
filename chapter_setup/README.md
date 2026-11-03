@@ -74,32 +74,32 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 hostsファイルには、この演習を通して利用するIPアドレスとドメインの紐付けを設定してください。YOUR_VM_IP_ADDRESSはこの演習で利用するマシンのIPアドレスを指定してください。
 
 ```text
-YOUR_VM_IP_ADDRESS    hello-world.example.com
-YOUR_VM_IP_ADDRESS    rollout.example.com
-YOUR_VM_IP_ADDRESS    blue-green.example.com
-YOUR_VM_IP_ADDRESS    app.example.com
-YOUR_VM_IP_ADDRESS    cndw-web.example.com
-YOUR_VM_IP_ADDRESS    prometheus.example.com
-YOUR_VM_IP_ADDRESS    grafana.example.com
-YOUR_VM_IP_ADDRESS    jaeger.example.com
-YOUR_VM_IP_ADDRESS    argocd.example.com
-YOUR_VM_IP_ADDRESS    app-argocd.example.com
-YOUR_VM_IP_ADDRESS    app-cicd.example.com
-YOUR_VM_IP_ADDRESS    dev-kustomize-argocd.example.com
-YOUR_VM_IP_ADDRESS    prd-kustomize-argocd.example.com
-YOUR_VM_IP_ADDRESS    helm-argocd.example.com
-YOUR_VM_IP_ADDRESS    app-preview-argocd.example.com
-YOUR_VM_IP_ADDRESS    headlamp.example.com
-YOUR_VM_IP_ADDRESS    argocdupdate.example.com
-YOUR_VM_IP_ADDRESS    app-rollouts.example.com
-YOUR_VM_IP_ADDRESS    app-preview-rollouts.example.com
-YOUR_VM_IP_ADDRESS    kiali.example.com
-YOUR_VM_IP_ADDRESS    kiali-ambient.example.com
-YOUR_VM_IP_ADDRESS    app-cilium.example.com
-YOUR_VM_IP_ADDRESS    hubble-cilium.example.com
-YOUR_VM_IP_ADDRESS    pyroscope.example.com
-YOUR_VM_IP_ADDRESS    troubleshoot.example.com
-YOUR_VM_IP_ADDRESS    cnd-web.example.com
+YOUR_VM_IP_ADDRESS    hello-world.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    rollout.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    blue-green.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    app.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    cndw-web.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    prometheus.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    grafana.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    jaeger.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    argocd.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    app-argocd.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    app-cicd.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    dev-kustomize-argocd.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    prd-kustomize-argocd.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    helm-argocd.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    app-preview-argocd.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    headlamp.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    argocdupdate.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    app-rollouts.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    app-preview-rollouts.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    kiali.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    kiali-ambient.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    app-cilium.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    hubble-cilium.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    pyroscope.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    troubleshoot.handson-2.hayama.top
+YOUR_VM_IP_ADDRESS    cnd-web.handson-2.hayama.top
 ```
 
 ## リポジトリのClone

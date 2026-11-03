@@ -10,7 +10,7 @@ spec:
     namespace: gateway
     sectionName: http
   hostnames:
-  - pyroscope.example.com
+  - pyroscope.handson-2.hayama.top
   rules:
   - matches:
     - path:

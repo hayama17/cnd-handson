@@ -402,10 +402,10 @@ kubectl get svc -n troubleshoot
 # backend-app    ExternalName   app-backend.backend.svc.cluster.local         8080/TCP
 
 # curlでアクセスできる
-curl http://troubleshoot.example.com/
+curl http://troubleshoot.handson-2.hayama.top/
 # <!DOCTYPE html>... (nginxのデフォルトページ)
 
-curl http://troubleshoot.example.com/api
+curl http://troubleshoot.handson-2.hayama.top/api
 # Hello from backend API
 ```
 
@@ -433,8 +433,8 @@ kubectl get events -n troubleshoot --sort-by='.lastTimestamp'
 # kubectl logs $(kubectl get pods -n ingress-nginx -l app.kubernetes.io/component=controller -o jsonpath='{.items[0].metadata.name}') -n ingress-nginx | grep troubleshoot
 
 # curlで疎通確認
-curl -H "Host: troubleshoot.example.com" http://troubleshoot.example.com/
-curl -H "Host: troubleshoot.example.com" http://troubleshoot.example.com/api
+curl -H "Host: troubleshoot.handson-2.hayama.top" http://troubleshoot.handson-2.hayama.top/
+curl -H "Host: troubleshoot.handson-2.hayama.top" http://troubleshoot.handson-2.hayama.top/api
 ```
 </details>
 
@@ -457,7 +457,7 @@ kubectl delete -f manifests/05-httproute.yaml
 
 > [!NOTE]
 > - 動作確認は、ブラウザから以下のURLにアクセスすることで行います。
->   - http://cnd-web.example.com
+>   - http://cnd-web.handson-2.hayama.top
 
 
 以下のコマンドでアプリのデプロイを行なってください。
@@ -484,7 +484,7 @@ kubectl get svc -n troubleshoot
 # mysql-svc     ClusterIP   10.x.x.x        3306/TCP
 
 # curlまたはブラウザでアクセスできる
-curl http://cnd-web.example.com
+curl http://cnd-web.handson-2.hayama.top
 # <!DOCTYPE html>... (nginxのデフォルトページが表示される)
 ```
 
